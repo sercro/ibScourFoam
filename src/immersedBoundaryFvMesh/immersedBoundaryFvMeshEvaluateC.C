@@ -188,7 +188,7 @@ void Foam::immersedBoundaryFvMesh::updateVs( const label& objectID) const
           (
              "transportProperties"
           );
-    dimensionedScalar nu("nu", transportProperties);
+    dimensionedScalar nu("nu", dimViscosity, transportProperties);
 
     if (VsModel == "constant")  //constant settling velocity
     {

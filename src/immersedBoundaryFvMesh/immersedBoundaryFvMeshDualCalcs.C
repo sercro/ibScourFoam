@@ -72,7 +72,7 @@ void Foam::immersedBoundaryFvMesh::sediment_dual(const label& objectID)const
               (
                  "transportProperties"
               );
-        dimensionedScalar nu("nu", transportProperties);
+        dimensionedScalar nu("nu", dimViscosity, transportProperties);
 
         PtrList<triSurface>& addSurfs= addObjectsList();
         

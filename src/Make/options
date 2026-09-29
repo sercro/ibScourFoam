@@ -15,7 +15,8 @@ EXE_INC = \
     -I$(LIB_SRC)/fvOptions/lnInclude \
     -I$(LIB_SRC)/sampling/lnInclude \
     -I$(LIB_SRC)/parallel/decompose/decompositionMethods/lnInclude \
-    -I./include
+    -I./include \
+    -I./immersedBoundaryTurbulence
 
 LIB_LIBS = \
     -lturbulenceModels \

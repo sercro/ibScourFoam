@@ -321,7 +321,7 @@ void kOmegaSSTSASIB<BasicTurbulenceModel>::correct()
     fvOptions.correct(this->k_);
     bound(this->k_, this->kMin_);
    
-    this->correctNut(S2);
+    this->correctNut(S2, F23);
     
     
     ibMesh.nutCorrection();

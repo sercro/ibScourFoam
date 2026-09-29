@@ -81,7 +81,7 @@ void Foam::immersedBoundaryFvMesh::initialIB() const
                       (
                          "transportProperties"
                       );
-                dimensionedScalar nu("nu", transportProperties);
+                dimensionedScalar nu("nu", dimViscosity, transportProperties);
 
                 scalar nuLam=nu.value();
 
@@ -223,10 +223,10 @@ void Foam::immersedBoundaryFvMesh::setInlet() const
                       (
                          "transportProperties"
                       );
-                dimensionedScalar nu("nu", transportProperties);
+                dimensionedScalar nu("nu", dimViscosity, transportProperties);
 
                 
-                vector gravity = objectDictList()[objectID].get<vector>("gravity");
+                vector gravity = objectDictList()[objectID].lookupType<vector>("gravity");
                 vector gDir = gravity/mag(gravity);
 
                 boundBox* meshBB = new boundBox(this->points(), false);
@@ -341,7 +341,7 @@ void Foam::immersedBoundaryFvMesh::evaluateU() const
 
     word nutWORD = "nut";
     dictionary turbDict (this->lookupObject<dictionary>("turbulenceProperties"));
-    word modelType = turbDict.get<word>("simulationType");
+    word modelType = turbDict.lookupType<word>("simulationType");
     if(modelType == "laminar")
     {
         nutWORD = "nu";
@@ -483,7 +483,7 @@ void Foam::immersedBoundaryFvMesh::ibCellForcing
 
 
     dictionary turbDict (this->lookupObject<dictionary>("turbulenceProperties"));
-    word modelType = turbDict.get<word>("simulationType");
+    word modelType = turbDict.lookupType<word>("simulationType");
     if(modelType == "laminar")
     {
         fromSPointReconstruction(U,objectID);
@@ -560,7 +560,7 @@ void Foam::immersedBoundaryFvMesh::ibCellReconstruction
 
     evaluateCoupled(U);
 
-    word modelType = turbDict.get<word>("simulationType");
+    word modelType = turbDict.lookupType<word>("simulationType");
 
 
 
@@ -599,7 +599,7 @@ void Foam::immersedBoundaryFvMesh::ghostCellReconstruction
         (this->lookupObject<surfaceScalarField>("phi"));
 
     const labelList& gCL = ghostCellsList()[objectID];
-    word modelType = turbDict.get<word>("simulationType");
+    word modelType = turbDict.lookupType<word>("simulationType");
     if(modelType == "laminar")
     {
         const pointField& imagePoints = imagePointsList()[objectID];

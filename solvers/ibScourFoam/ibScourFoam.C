@@ -69,6 +69,9 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+    Info<< "\nHello! This is S. Croquer's version of ibScourFoam!!! He loves cats and coffee\n" << endl;
+
+
     Info<< "\nStarting time loop\n" << endl;
 
     while (runTime.loop())

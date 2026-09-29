@@ -219,7 +219,13 @@ void Foam::immersedBoundaryFvMesh::parallelWrite
 
         autoPtr<Ostream> osPtr
         (
-            fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+            // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+            fileHandler().NewOFstream(
+                filePath,
+                time().writeFormat(),
+                time().writeVersion(),
+                time().writeCompression()
+                )
         );
         volValues.writeHeader(osPtr());
         volValues.writeData(osPtr());
@@ -242,7 +248,13 @@ void Foam::immersedBoundaryFvMesh::parallelWriteMesh
     fileName filePath =  casePath/IOField.name();
     autoPtr<Ostream> osPtr
     (
-        fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        fileHandler().NewOFstream(
+            filePath,
+            time().writeFormat(),
+            time().writeVersion(),
+            time().writeCompression()
+            )
     );
     IOField.writeHeader(osPtr());
     IOField.writeData(osPtr());
@@ -259,7 +271,13 @@ void Foam::immersedBoundaryFvMesh::parallelWriteMesh
     fileName filePath =  casePath/IOField.name();
     autoPtr<Ostream> osPtr
     (
-        fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        fileHandler().NewOFstream(
+            filePath,
+            time().writeFormat(),
+            time().writeVersion(),
+            time().writeCompression()
+            )
     );
     IOField.writeHeader(osPtr());
     IOField.writeData(osPtr());
@@ -277,7 +295,13 @@ void Foam::immersedBoundaryFvMesh::parallelWriteMesh
     fileName filePath =  casePath/IOField.name();
     autoPtr<Ostream> osPtr
     (
-        fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        fileHandler().NewOFstream(
+            filePath,
+            time().writeFormat(),
+            time().writeVersion(),
+            time().writeCompression()
+            )
     );
     IOField.writeHeader(osPtr(),"faceList");
     IOField.writeData(osPtr());
@@ -294,7 +318,13 @@ void Foam::immersedBoundaryFvMesh::parallelWriteMesh
     fileName filePath =  casePath/IOField.name();
     autoPtr<Ostream> osPtr
     (
-        fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        fileHandler().NewOFstream(
+            filePath,
+            time().writeFormat(),
+            time().writeVersion(),
+            time().writeCompression()
+            )
     );
     IOField.writeHeader(osPtr());
     IOField.writeData(osPtr());
@@ -312,7 +342,13 @@ void Foam::immersedBoundaryFvMesh::parallelWriteMesh
     fileName filePath =  casePath/IOField.name();
     autoPtr<Ostream> osPtr
     (
-        fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        // fileHandler().NewOFstream(filePath, IOstreamOption(time().writeFormat(), time().writeCompression()))
+        fileHandler().NewOFstream(
+            filePath,
+            time().writeFormat(),
+            time().writeVersion(),
+            time().writeCompression()
+            )
     );
     IOField.writeHeader(osPtr());
     IOField.writeData(osPtr());

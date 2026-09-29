@@ -87,8 +87,8 @@ tmp<volScalarField::Internal> kOmegaSSTLMIB<BasicTurbulenceModel>::Fthetat
 
     return volScalarField::Internal::New(
         IOobject::groupName("Fthetat", this->alphaRhoPhi_.group()),
-        this->mesh_,
-        dimless,
+        // this->mesh_,
+        // dimless,
         min
         (
             max
@@ -339,8 +339,8 @@ tmp<volScalarField::Internal> kOmegaSSTLMIB<BasicTurbulenceModel>::Fonset
 
     return volScalarField::Internal::New(
         IOobject::groupName("Fonset", this->alphaRhoPhi_.group()),
-        this->mesh_,
-        dimless,
+        // this->mesh_,
+        // dimless,
         max(Fonset2 - Fonset3, scalar(0))
     );
 }

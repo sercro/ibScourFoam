@@ -149,7 +149,7 @@ void Foam::dualPatch::makeDualPatch()
         dualFace.shrink();
         face newDualFace(dualFace);
         // check reverse
-        scalar re = pointNormals[I]&newDualFace.unitNormal(dualPoints);
+        scalar re = pointNormals[I]&newDualFace.normal(dualPoints);
         if(re<0)
         {
             newDualFace = newDualFace.reverseFace();

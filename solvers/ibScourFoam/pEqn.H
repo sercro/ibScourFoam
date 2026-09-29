@@ -40,7 +40,7 @@ while (piso.correctNonOrthogonal())
     // For now, nothing has been done to pressure term.
 
 
-    pEqn.solve(mesh.solver(p.select(piso.finalInnerIter())));
+    pEqn.solve(mesh.solverDict(p.select(piso.finalInnerIter())));
     
     if (piso.finalNonOrthogonalIter())
     {
